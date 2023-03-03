@@ -1,0 +1,44 @@
+<%-include ../partials/header.ejs%>
+<%-include ../partials/main_nav.ejs%>
+  <!--Main nav Navigation-->
+   
+<main class="container">
+  <div class="row">
+   <div class="offset-md-1 col-md-10">
+    <h1><%=title %></h1>
+    <a href="/contactList/add" class="btn btn-primary" role="button"><i class="fas fa-plus-circle"></i>Add a Contact</a>
+    <br>
+    <table class="table table-bordered table-striped table-hover">
+        <!--Header Row-->
+        <tr>
+            <th class="text-center col-2">Name</th>
+            <th class="text-center col-2">Contact</th>
+            <th class="text-center col-1">Email</th>
+            <th class="text-center col-1"></th>
+            <th class="text-center col-1"></th>
+            </tr>
+            <%for(let count = 0; count < BookList.length; count ++){%>
+                <tr>
+                    <td class="text-center col-2"><%=BookList[count].name %></td>
+                    <td class="text-center col-2"><%=BookList[count].phone %></td>
+                    <td class="text-center col-1"><%=BookList[count].email %></td>
+                    <td class="text-center col-1"><a href="/contactList/edit/<%=BookList[count]._id%>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i>Edit</a></td>
+                    <td class="text-center col-1"><a href="/contactList/delete/<%=BookList[count]._id%>" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a></td>
+                    </tr>
+                    <%}%>
+
+        </table>
+    </div>
+    </div>
+</main>
+
+    
+  <!--<h1><%= title %></h1>-->
+  <!--<p>Welcome to the <%= title %> Page</p>-->
+  <!--Script section-->
+  <%-include ../partials/bottom_nav.ejs%>
+  <%-include ../partials/footer.ejs%>
+
+
+
+
